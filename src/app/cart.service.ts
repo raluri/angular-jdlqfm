@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Logger }     from '../logger.service';
+import { LoggerService } from './logger.service';
 
 @Injectable({
    providedIn: 'root'
@@ -11,7 +11,7 @@ items = [];
 
 constructor(
   private http: HttpClient,
-  private logger: Logger
+  private logger: LoggerService
 ) { }
 
 addToCart(product) {
@@ -32,6 +32,7 @@ addToCart(product) {
   }
 
   getShippingPrices() {
+    this.logger.log('Getting ShippingServices ...');
     return this.http.get('/assets/shipping.json');
   }
 
