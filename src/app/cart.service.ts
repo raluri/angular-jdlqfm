@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Logger }     from '../logger.service';
 
 @Injectable({
    providedIn: 'root'
@@ -9,7 +10,8 @@ export class CartService {
 items = []; 
 
 constructor(
-  private http: HttpClient
+  private http: HttpClient,
+  private logger: Logger
 ) { }
 
 addToCart(product) {
